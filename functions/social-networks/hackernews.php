@@ -81,7 +81,8 @@ function swp_hacker_news_button_html( $array ) {
 			endif;
 		++$array['count'];
 
-		$array['resource']['hacker_news'] = '<div class="nc_tweetContainer swp_hacker_news" data-id="' . $array['count'] . '" data-network="hacker_news">';
+		$array['resource']['hacker_news'] = '<div class="networkContainer">';
+		$array['resource']['hacker_news'] .= '<div class="nc_tweetContainer swp_hacker_news" data-id="' . $array['count'] . '" data-network="hacker_news">';
 		$link = urlencode( urldecode( swp_process_url( $array['url'] , 'email' , $array['postID'] ) ) );
 		$array['resource']['hacker_news'] .= '<a rel="nofollow" target="_blank" href="http://news.ycombinator.com/submitlink?u=' . $link . '&t=' . urlencode( $title ) . '" data-link="http://news.ycombinator.com/submitlink?u=' . $link . '&t=' . urlencode( $title ) . '" class="nc_tweet">';
 		if ( $array['options']['totesEach'] && $array['shares']['totes'] >= $array['options']['minTotes'] && $array['shares']['hacker_news'] > 0 ) :
@@ -96,7 +97,7 @@ function swp_hacker_news_button_html( $array ) {
 			endif;
 			$array['resource']['hacker_news'] .= '</a>';
 			$array['resource']['hacker_news'] .= '</div>';
-
+			$array['resource']['hacker_news'] .= '</div>';
 		endif;
 
 	return $array;

@@ -91,7 +91,8 @@ function swp_tumblr_button_html( $array ) {
 			// Collect the Description
 			$description = get_post_meta( $array['postID'] , 'nc_ogDescription' , true );
 
-			$array['resource']['tumblr'] = '<div class="nc_tweetContainer swp_tumblr" data-id="' . $array['count'] . '" data-network="tumblr">';
+			$array['resource']['tumblr'] = '<div class="networkContainer">';
+			$array['resource']['tumblr'] .= '<div class="nc_tweetContainer swp_tumblr" data-id="' . $array['count'] . '" data-network="tumblr">';
 			$link = urlencode( urldecode( swp_process_url( $array['url'] , 'tumblr' , $array['postID'] ) ) );
 			$array['resource']['tumblr'] .= '<a rel="nofollow" target="_blank" href="http://www.tumblr.com/share/link?url=' . $link . '&name=' . urlencode( $title ) . ($description ? '&description=' : '') . urlencode( $description ) . '" data-link="http://www.tumblr.com/share/link?url=' . $link . '&name=' . urlencode( $title ) . ($description ? '&description=' : '') . urlencode( $description ) . '" class="nc_tweet">';
 			if ( $array['options']['totesEach'] && $array['shares']['totes'] >= $array['options']['minTotes'] && $array['shares']['tumblr'] > 0 ) :
@@ -105,6 +106,7 @@ function swp_tumblr_button_html( $array ) {
 				$array['resource']['tumblr'] .= '<span class="swp_count swp_hide"><span class="iconFiller"><span class="spaceManWilly"><i class="sw sw-tumblr"></i><span class="swp_share"> ' . __( 'Share','social-warfare' ) . '</span></span></span></span>';
 			endif;
 			$array['resource']['tumblr'] .= '</a>';
+			$array['resource']['tumblr'] .= '</div>';
 			$array['resource']['tumblr'] .= '</div>';
 
 			// Store these buttons so that we don't have to generate them for each set

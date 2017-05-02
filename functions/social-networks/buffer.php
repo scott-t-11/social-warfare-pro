@@ -134,8 +134,9 @@ function swp_buffer_button_html( $array ) {
 			$array['totes'] += intval( $array['shares']['buffer'] );
 
 			++$array['count'];
+			$array['resource']['buffer'] = '<div class="networkContainer">';
 
-			$array['resource']['buffer'] = '<div class="nc_tweetContainer swp_buffer" data-id="' . $array['count'] . '" data-network="buffer">';
+			$array['resource']['buffer'] .= '<div class="nc_tweetContainer swp_buffer" data-id="' . $array['count'] . '" data-network="buffer">';
 
 			$link = urlencode( urldecode( swp_process_url( $array['url'] , 'buffer' , $array['postID'] ) ) );
 
@@ -162,6 +163,8 @@ function swp_buffer_button_html( $array ) {
 			endif;
 
 			$array['resource']['buffer'] .= '</a>';
+
+			$array['resource']['buffer'] .= '</div>';
 
 			$array['resource']['buffer'] .= '</div>';
 

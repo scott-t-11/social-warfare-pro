@@ -108,7 +108,8 @@ function swp_reddit_button_html( $array ) {
 				$title = get_the_title();
 			endif;
 
-			$array['resource']['reddit'] = '<div class="nc_tweetContainer swp_reddit" data-id="' . $array['count'] . '" data-network="reddit">';
+			$array['resource']['reddit'] = '<div class="networkContainer">';
+			$array['resource']['reddit'] .= '<div class="nc_tweetContainer swp_reddit" data-id="' . $array['count'] . '" data-network="reddit">';
 			$link = $array['url'];
 			$array['resource']['reddit'] .= '<a rel="nofollow" target="_blank" href="https://www.reddit.com/submit?url=' . $link . '&title=' . urlencode( $title ) . '" data-link="https://www.reddit.com/submit?url=' . $link . '&title=' . urlencode( $title ) . '" class="nc_tweet">';
 			if ( $array['options']['totesEach'] && $array['shares']['totes'] >= $array['options']['minTotes'] && isset( $array['shares']['reddit'] ) && $array['shares']['reddit'] > 0 ) :
@@ -122,6 +123,7 @@ function swp_reddit_button_html( $array ) {
 				$array['resource']['reddit'] .= '<span class="swp_count swp_hide"><span class="iconFiller"><span class="spaceManWilly"><i class="sw sw-reddit"></i><span class="swp_share"> ' . __( 'Reddit','social-warfare' ) . '</span></span></span></span>';
 			endif;
 			$array['resource']['reddit'] .= '</a>';
+			$array['resource']['reddit'] .= '</div>';
 			$array['resource']['reddit'] .= '</div>';
 
 			// Store these buttons so that we don't have to generate them for each set

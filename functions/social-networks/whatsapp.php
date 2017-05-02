@@ -67,6 +67,7 @@ function swp_whatsapp_button_html( $array ) {
 			$array['totes'] += intval( $array['shares']['whatsapp'] );
 			++$array['count'];
 
+			//$array['resource']['whatsapp'] = '<div class="networkContainer">';
 			$array['resource']['whatsapp'] = '<div class="nc_tweetContainer swp_whatsapp" data-id="' . $array['count'] . '" data-network="whatsapp">';
 			$link = urlencode( urldecode( swp_process_url( $array['url'] , 'whatsapp' , $array['postID'] ) ) );
 			$array['resource']['whatsapp'] .= '<a rel="nofollow" target="_blank" onclick="window.location = this.href;" href="whatsapp://send?text=' . $link . '" data-link="whatsapp://send?text=' . $link . '" class="nc_tweet noPop" data-action="share/whatsapp/share">';
@@ -82,6 +83,7 @@ function swp_whatsapp_button_html( $array ) {
 			endif;
 			$array['resource']['whatsapp'] .= '</a>';
 			$array['resource']['whatsapp'] .= '</div>';
+			//$array['resource']['whatsapp'] .= '</div>';
 
 			// Store these buttons so that we don't have to generate them for each set
 			$_GLOBALS['sw']['buttons'][ $array['postID'] ]['whatsapp'] = $array['resource']['whatsapp'];
